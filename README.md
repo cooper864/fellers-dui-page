@@ -24,3 +24,9 @@ All original copy is kept; the goal of the layout is to drive phone calls to (75
 Upload the three images to the site's media library and replace the `images/...`
 paths in `index.html` with the hosted image URLs. Paste everything inside `<body>`
 plus the `<style>` block (and the Google Fonts `<link>`) into the page or an HTML embed.
+
+## GoDaddy version
+`godaddy-embed.html` is a paste-ready copy for GoDaddy Website Builder's HTML section:
+photos are compressed and embedded in the file (no uploads needed), links open in the
+main window (`target="_top"`), and the sticky mobile call bar is removed because it
+can't stay on screen inside GoDaddy's embed frame.
