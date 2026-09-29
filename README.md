@@ -30,5 +30,7 @@ GoDaddy's custom code block goes inside `<body>` and is limited to 51,000 charac
 - `godaddy-body.html` – the whole section in one block (~20,000 characters).
 - `godaddy-parts/part-1.html`, `part-2.html` – the same code split in two blocks, each with its own styles.
 
+Regenerate these after editing `index.html` with `python3 build-godaddy.py`.
+
 Images load from jsDelivr, pinned to commit `0bc5021` (`images/web/`), so this repo must stay public.
 Links use `target="_top"` so they open in the main window, and the sticky mobile call bar is left out.
