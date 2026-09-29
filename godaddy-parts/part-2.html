@@ -1,0 +1,301 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* All styles are scoped to .fl-dui so the section can be dropped into an existing site. */
+  .fl-dui {
+    --navy-900: #0a1630;
+    --navy-800: #0f1f3d;
+    --navy-700: #16294f;
+    --gold-500: #c9a24a;
+    --gold-400: #dcb964;
+    --gold-100: #f6eedb;
+    --cream: #faf7f1;
+    --ink: #1c2333;
+    --muted: #5a6275;
+    --white: #ffffff;
+    --radius: 14px;
+    --shadow: 0 18px 40px -18px rgba(10, 22, 48, .45);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .fl-dui *, .fl-dui *::before, .fl-dui *::after { box-sizing: border-box; }
+  .fl-dui img { max-width: 100%; height: auto; display: block; }
+  .fl-dui .hero-grid > *, .fl-dui .apart-grid > *, .fl-dui .local-grid > *, .fl-dui .guide-card > * { min-width: 0; }
+  .fl-dui h1, .fl-dui h2, .fl-dui h3 {
+    font-family: "Playfair Display", Georgia, serif;
+    line-height: 1.15;
+    margin: 0 0 .6em;
+    letter-spacing: -.01em;
+  }
+  .fl-dui p { margin: 0 0 1.1em; }
+  .fl-dui a { color: inherit; }
+  .fl-dui .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  .fl-dui section { padding: 88px 0; }
+
+  .fl-dui .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--gold-500); margin-bottom: 16px;
+  }
+  .fl-dui .eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; }
+
+  /* Buttons */
+  .fl-dui .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+    padding: 18px 34px; border-radius: 999px;
+    font-weight: 700; font-size: 16px; letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none; transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .fl-dui .btn svg { width: 20px; height: 20px; flex: none; }
+  .fl-dui .btn-gold {
+    background: linear-gradient(180deg, var(--gold-400), var(--gold-500));
+    color: var(--navy-900);
+    box-shadow: 0 10px 24px -10px rgba(201, 162, 74, .8);
+  }
+  .fl-dui .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -10px rgba(201, 162, 74, .9); }
+  .fl-dui .btn-navy { background: var(--navy-800); color: var(--white); }
+  .fl-dui .btn-navy:hover { background: var(--navy-700); transform: translateY(-2px); }
+  .fl-dui .phone-line { margin-top: 14px; font-size: 15px; color: var(--muted); }
+  .fl-dui .phone-line a { white-space: nowrap; font-weight: 700; text-decoration: none; color: var(--navy-800); }
+
+  /* Hero */
+  .fl-dui .hero {
+    background:
+      radial-gradient(1200px 500px at 85% -10%, rgba(201,162,74,.18), transparent 60%),
+      linear-gradient(160deg, var(--navy-900), var(--navy-800) 55%, var(--navy-700));
+    color: var(--white);
+    padding: 96px 0 0;
+    overflow: hidden;
+  }
+  .fl-dui .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: end; }
+  .fl-dui .hero-copy { padding-bottom: 96px; }
+  .fl-dui .hero h1 { font-size: clamp(36px, 5vw, 58px); font-weight: 800; }
+  .fl-dui .hero h1 .gold { color: var(--gold-400); display: block; }
+  .fl-dui .hero p { color: rgba(255,255,255,.85); font-size: 18px; max-width: 580px; }
+  .fl-dui .hero p a { color: var(--gold-400); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .fl-dui .hero .phone-line { color: rgba(255,255,255,.7); }
+  .fl-dui .hero .phone-line a { color: var(--white); }
+  .fl-dui .hero-photo { position: relative; align-self: end; }
+  .fl-dui .hero-photo img {
+    border-radius: var(--radius) var(--radius) 0 0;
+    aspect-ratio: 4 / 4.4; object-fit: cover; object-position: center 20%; width: 100%;
+    box-shadow: var(--shadow);
+  }
+  .fl-dui .badge {
+    position: absolute; left: -28px; bottom: 40px;
+    background: var(--white); color: var(--navy-800);
+    padding: 16px 20px; border-radius: 12px; box-shadow: var(--shadow);
+    display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 15px; line-height: 1.3;
+  }
+  .fl-dui .badge svg { width: 34px; height: 34px; color: var(--gold-500); flex: none; }
+  .fl-dui .badge small { display: block; font-weight: 500; color: var(--muted); font-size: 13px; }
+
+  /* Trust strip */
+  .fl-dui .trust { background: var(--navy-900); color: rgba(255,255,255,.85); padding: 22px 0; border-top: 1px solid rgba(201,162,74,.35); }
+  .fl-dui .trust ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 40px; font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+  .fl-dui .trust li { display: flex; align-items: center; gap: 10px; }
+  .fl-dui .trust li::before { content: ""; width: 7px; height: 7px; background: var(--gold-500); transform: rotate(45deg); }
+
+  /* Steps */
+  .fl-dui .steps { background: var(--cream); }
+  .fl-dui .section-head { max-width: 720px; margin: 0 auto 52px; text-align: center; }
+  .fl-dui .section-head .eyebrow::after { content: ""; width: 28px; height: 2px; background: currentColor; }
+  .fl-dui .section-head h2 { font-size: clamp(30px, 3.6vw, 44px); color: var(--navy-800); }
+  .fl-dui .section-head p { color: var(--muted); font-size: 18px; }
+  .fl-dui .step-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: step; }
+  .fl-dui .step-list li {
+    counter-increment: step; position: relative;
+    background: var(--white); border-radius: var(--radius); padding: 30px 24px 26px;
+    border-top: 4px solid var(--gold-500);
+    box-shadow: 0 8px 24px -16px rgba(10,22,48,.35);
+    font-size: 16px;
+  }
+  .fl-dui .step-list li::before {
+    content: counter(step, decimal-leading-zero);
+    display: block; font-family: "Playfair Display", Georgia, serif; font-weight: 800;
+    font-size: 34px; color: var(--gold-500); line-height: 1; margin-bottom: 14px;
+  }
+  .fl-dui .evidence {
+    margin-top: 40px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center;
+    background: var(--navy-800); color: rgba(255,255,255,.9); border-radius: var(--radius); padding: 32px 36px;
+  }
+  .fl-dui .evidence svg { width: 48px; height: 48px; color: var(--gold-400); }
+  .fl-dui .evidence p { margin: 0; font-size: 17px; }
+  .fl-dui .evidence strong { color: var(--white); }
+
+  /* Apart */
+  .fl-dui .apart-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 72px; align-items: center; }
+  .fl-dui .portrait { position: relative; }
+  .fl-dui .portrait img { border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 4/5; object-fit: cover; object-position: center 15%; width: 100%; }
+  .fl-dui .portrait::before {
+    content: ""; position: absolute; inset: 22px -22px -22px 22px; border: 2px solid var(--gold-500);
+    border-radius: var(--radius); z-index: -1;
+  }
+  .fl-dui .apart { position: relative; z-index: 0; }
+  .fl-dui .apart h2 { font-size: clamp(30px, 3.6vw, 44px); color: var(--navy-800); }
+  .fl-dui .apart .lead { font-size: 19px; color: var(--ink); }
+  .fl-dui .pull {
+    border-left: 4px solid var(--gold-500); background: var(--gold-100);
+    padding: 20px 24px; border-radius: 0 10px 10px 0; margin: 28px 0 32px;
+    font-family: "Playfair Display", Georgia, serif; font-size: 21px; line-height: 1.45; color: var(--navy-800);
+  }
+  .fl-dui .pull p { margin: 0; }
+
+  /* Local */
+  .fl-dui .local { background: var(--cream); }
+  .fl-dui .local-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .fl-dui .local h2 { font-size: clamp(30px, 3.6vw, 44px); color: var(--navy-800); }
+  .fl-dui .local-card {
+    background: var(--white); border-radius: var(--radius); padding: 36px;
+    box-shadow: 0 8px 24px -16px rgba(10,22,48,.35);
+  }
+  .fl-dui .local-card h3 { font-size: 22px; color: var(--navy-800); display: flex; align-items: center; gap: 12px; }
+  .fl-dui .local-card h3 svg { width: 28px; height: 28px; color: var(--gold-500); flex: none; }
+  .fl-dui .local-card p:last-child { margin-bottom: 0; }
+
+  /* Guide */
+  .fl-dui .guide { background: var(--white); }
+  .fl-dui .guide-card {
+    display: grid; grid-template-columns: 380px 1fr; gap: 48px; align-items: center;
+    background: linear-gradient(135deg, var(--navy-900), var(--navy-700));
+    border-radius: 20px; padding: 36px; color: var(--white); box-shadow: var(--shadow);
+    text-decoration: none; transition: transform .2s ease;
+  }
+  .fl-dui .guide-card:hover { transform: translateY(-3px); }
+  .fl-dui .guide-card img { border-radius: 12px; width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+  .fl-dui .guide-card h3 { font-size: clamp(26px, 3vw, 36px); }
+  .fl-dui .guide-card p { color: rgba(255,255,255,.8); }
+  .fl-dui .guide-card .read {
+    display: inline-flex; align-items: center; gap: 10px; color: var(--gold-400);
+    font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 15px;
+  }
+  .fl-dui .guide-card .read svg { width: 18px; height: 18px; transition: transform .2s ease; }
+  .fl-dui .guide-card:hover .read svg { transform: translateX(4px); }
+
+  /* Final CTA */
+  .fl-dui .final {
+    background:
+      radial-gradient(900px 400px at 50% 0%, rgba(201,162,74,.22), transparent 65%),
+      var(--navy-900);
+    color: var(--white); text-align: center;
+  }
+  .fl-dui .final .inner { max-width: 780px; margin: 0 auto; }
+  .fl-dui .final h2 { font-size: clamp(30px, 4vw, 48px); }
+  .fl-dui .final h2 .gold { color: var(--gold-400); }
+  .fl-dui .final p { color: rgba(255,255,255,.82); font-size: 18px; }
+  .fl-dui .final p a { color: var(--gold-400); font-weight: 600; text-underline-offset: 3px; }
+  .fl-dui .final .btn { margin-top: 12px; font-size: 18px; padding: 22px 44px; }
+  .fl-dui .final .big-phone {
+    display: block; margin-top: 22px; font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--white); text-decoration: none;
+  }
+
+  /* Sticky mobile call bar */
+  .fl-dui .callbar { display: none; }
+
+  @media (max-width: 960px) {
+    .fl-dui section { padding: 64px 0; }
+    .fl-dui .hero { padding-top: 56px; }
+    .fl-dui .hero-grid, .fl-dui .apart-grid, .fl-dui .local-grid, .fl-dui .guide-card { grid-template-columns: 1fr; gap: 40px; }
+    .fl-dui .hero-copy { padding-bottom: 0; }
+    .fl-dui .hero-photo { max-width: 520px; margin: 0 auto; width: 100%; }
+    .fl-dui .badge { left: 12px; bottom: 16px; }
+    .fl-dui .step-list { grid-template-columns: 1fr 1fr; }
+    .fl-dui .portrait { max-width: 440px; margin: 0 auto 12px; width: calc(100% - 22px); }
+    .fl-dui .guide-card { padding: 24px; }
+    .fl-dui .guide-card img { max-width: 420px; }
+  }
+  @media (max-width: 640px) {
+    .fl-dui { font-size: 16px; }
+    .fl-dui .wrap { padding: 0 16px; }
+    .fl-dui .step-list { grid-template-columns: 1fr; }
+    .fl-dui .evidence { grid-template-columns: 1fr; padding: 26px 22px; }
+    .fl-dui .btn { width: 100%; }
+    .fl-dui .local-card { padding: 26px 22px; }
+    .fl-dui .trust ul { gap: 10px 22px; font-size: 12px; }
+    .fl-dui .callbar {
+      display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(10,22,48,.97); box-shadow: 0 -8px 24px rgba(0,0,0,.25);
+    }
+    .fl-dui .callbar .btn { padding: 15px 20px; }
+  }
+</style>
+<div class="fl-dui">
+  <!-- WHAT SETS US APART -->
+  <section>
+    <div class="wrap apart-grid">
+      <div class="portrait">
+        <img src="https://cdn.jsdelivr.net/gh/cooper864/fellers-dui-page@0bc5021a0de6667c437d954d962de38881b2860c/images/web/attorney-headshot.jpg" alt="Fellers Law DUI defense attorney" width="1122" height="1402" loading="lazy">
+      </div>
+      <div class="apart">
+        <span class="eyebrow">Why Fellers Law</span>
+        <h2>What Sets Us Apart</h2>
+        <p class="lead">The attorneys at Fellers Law have experience on both sides of the courtroom. As former prosecutors, they know how DUI cases are investigated, prepared, presented, challenged, and won. Today, they use that knowledge to look for weak points in the evidence, question police procedures, identify legal issues early, and develop a strategy tailored to each client.</p>
+        <div class="pull">
+          <p>You won't receive a standard defense. You'll receive honest guidance and a legal team that prepares every case with the attention it deserves.</p>
+        </div>
+        <a target="_top" class="btn btn-navy" href="tel:757-990-3138">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+          Talk to Us
+        </a>
+        <div class="phone-line">Speak with a former prosecutor: <a target="_top" href="tel:+17579903138">(757) 990-3138</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL EXPERIENCE -->
+  <section class="local">
+    <div class="wrap local-grid">
+      <div>
+        <span class="eyebrow">Local Knowledge</span>
+        <h2>Why Local Experience Matters</h2>
+        <p>A DUI case isn't handled in a vacuum. Local court procedures, filing requirements, courtroom expectations, and prosecutorial practices can influence how a case moves forward. Working with a DUI lawyer who regularly represents clients in Virginia Beach, VA, and throughout Hampton Roads means your defense is built with local knowledge from day one.</p>
+      </div>
+      <div class="local-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          Virginia Beach &amp; Hampton Roads
+        </h3>
+        <p>That experience also helps us anticipate challenges, respond quickly, keep you informed throughout the process, and adjust your defense as new information becomes available.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED GUIDE -->
+  <section class="guide">
+    <div class="wrap">
+      <a target="_top" class="guide-card" href="https://fellers-law.com/virginia-legal-resrouces/f/how-to-assert-your-rights-during-a-virginia-traffic-stop">
+        <img src="https://cdn.jsdelivr.net/gh/cooper864/fellers-dui-page@0bc5021a0de6667c437d954d962de38881b2860c/images/web/traffic-stop-guide-cover.jpg" alt="Pulled Over in Virginia? Know what's required. Know what may be voluntary." width="1254" height="1254" loading="lazy">
+        <div>
+          <span class="eyebrow">Free Legal Guide</span>
+          <h3>How to Assert Your Rights During a Virginia Traffic Stop</h3>
+          <p>Pulled over in Virginia? Know what's required. Know what may be voluntary.</p>
+          <span class="read">Read the Full Guide
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="wrap inner">
+      <span class="eyebrow">Protect Your Future</span>
+      <h2>The sooner you speak with an attorney, <span class="gold">the sooner you can begin protecting your future.</span></h2>
+      <p><a target="_top" href="https://fellers-law.com/contact-us-1">Contact Fellers Law today</a> to discuss your case with an experienced DUI attorney serving Virginia Beach, VA.</p>
+      <p>We'll answer your questions, explain what to expect, review the details of your case, and begin building a defense designed for your circumstances.</p>
+      <a target="_top" class="btn btn-gold" href="tel:+17579903138">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+        Call Us
+      </a>
+      <a target="_top" class="big-phone" href="tel:+17579903138">(757) 990-3138</a>
+    </div>
+  </section>
+</div>

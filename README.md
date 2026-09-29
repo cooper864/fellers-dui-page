@@ -26,7 +26,9 @@ paths in `index.html` with the hosted image URLs. Paste everything inside `<body
 plus the `<style>` block (and the Google Fonts `<link>`) into the page or an HTML embed.
 
 ## GoDaddy version
-`godaddy-embed.html` is a paste-ready copy for GoDaddy Website Builder's HTML section:
-photos are compressed and embedded in the file (no uploads needed), links open in the
-main window (`target="_top"`), and the sticky mobile call bar is removed because it
-can't stay on screen inside GoDaddy's embed frame.
+GoDaddy's custom code block goes inside `<body>` and is limited to 51,000 characters.
+- `godaddy-body.html` – the whole section in one block (~20,000 characters).
+- `godaddy-parts/part-1.html`, `part-2.html` – the same code split in two blocks, each with its own styles.
+
+Images load from jsDelivr, pinned to commit `0bc5021` (`images/web/`), so this repo must stay public.
+Links use `target="_top"` so they open in the main window, and the sticky mobile call bar is left out.
