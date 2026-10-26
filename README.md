@@ -34,3 +34,21 @@ Regenerate these after editing `index.html` with `python3 build-godaddy.py`.
 
 Images load from jsDelivr, pinned to commit `0bc5021` (`images/web/`), so this repo must stay public.
 Links use `target="_top"` so they open in the main window, and the sticky mobile call bar is left out.
+
+---
+
+# Weapons & Firearms Page Redesign
+
+Redesign of https://fellers-law.com/weapons-and-firearms with all original copy kept.
+Same design system as the DUI page.
+
+- `weapons/index.html` – full page (sections: hero, trust strip, 360-degree perspective,
+  military, local insight + husband-and-wife team, charges, Second Amendment, FAQ, final CTA)
+- `weapons/godaddy-body.html` – one GoDaddy block (~33,600 characters)
+- `weapons/godaddy-parts/part-1.html`, `part-2.html` – two-block backup
+- `weapons/images/web/` – photos served via jsDelivr (pinned to commit `4bb4090`)
+
+The FAQ uses `<details>` so it opens and closes without JavaScript, and includes FAQPage
+structured data built from the same questions and answers.
+
+Run `python3 build-godaddy.py` to regenerate the GoDaddy files for both pages.
