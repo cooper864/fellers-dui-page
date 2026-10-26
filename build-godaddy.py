@@ -2,7 +2,7 @@
 
 GoDaddy's custom code block goes inside <body> and is limited to 51,000 characters,
 so this strips the document wrapper, points images at jsDelivr, opens links in the
-main window, drops the sticky call bar, and writes a one-block and a two-part version.
+main window, drops the sticky call bar, and writes one paste-ready block per page.
 
 Usage: python3 build-godaddy.py            (builds every page in PAGES)
 """
@@ -37,16 +37,7 @@ def build(src, commit, image_dir, out):
     def block(secs):
         return head + '<div class="fl-dui">\n  ' + "\n\n  ".join(secs) + "\n</div>\n"
 
-    # split the two-part version where the markup is closest to half
-    sizes = [len(x) for x in sections]
-    half = sum(sizes) / 2
-    cut = min(range(1, len(sections)), key=lambda i: abs(sum(sizes[:i]) - half))
-
-    outputs = {
-        f"{out}godaddy-body.html": block(sections),
-        f"{out}godaddy-parts/part-1.html": block(sections[:cut]),
-        f"{out}godaddy-parts/part-2.html": block(sections[cut:]),
-    }
+    outputs = {f"{out}godaddy-body.html": block(sections)}
     for path, text in outputs.items():
         assert len(text) < LIMIT, (path, len(text))
         open(path, "w").write(text)

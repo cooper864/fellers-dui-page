@@ -28,7 +28,6 @@ plus the `<style>` block (and the Google Fonts `<link>`) into the page or an HTM
 ## GoDaddy version
 GoDaddy's custom code block goes inside `<body>` and is limited to 51,000 characters.
 - `godaddy-body.html` – the whole section in one block (~20,000 characters).
-- `godaddy-parts/part-1.html`, `part-2.html` – the same code split in two blocks, each with its own styles.
 
 Regenerate these after editing `index.html` with `python3 build-godaddy.py`.
 
@@ -43,9 +42,8 @@ Redesign of https://fellers-law.com/weapons-and-firearms with all original copy 
 Same design system as the DUI page.
 
 - `weapons/index.html` – full page (sections: hero, trust strip, 360-degree perspective,
-  military, local insight + husband-and-wife team, charges, Second Amendment, FAQ, final CTA)
-- `weapons/godaddy-body.html` – one GoDaddy block (~33,600 characters)
-- `weapons/godaddy-parts/part-1.html`, `part-2.html` – two-block backup
+  military, local insight + husband-and-wife team, charges, Second Amendment, FAQ, final CTA). On phones each section reorders to headline → photo or icons → text → call button.
+- `weapons/godaddy-body.html` – one GoDaddy block (~40,300 characters)
 - `weapons/images/web/` – photos served via jsDelivr (pinned to commit `4bb4090`)
 
 The FAQ uses `<details>` so it opens and closes without JavaScript, and includes FAQPage
