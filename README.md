@@ -66,3 +66,7 @@ weapons pages (same navy/gold brand). All styles are scoped to `.fl-vc`.
 
 Markup is written in phone order (headline → visual → text → call button); desktop
 rearranges sections with CSS grid areas.
+
+## Client previews
+`previews/violent-crime-preview.html` is a single self-contained file (photos embedded) for
+sharing a draft by email or file-sharing link. Open it in any browser. It is not for GoDaddy.
