@@ -50,3 +50,19 @@ The FAQ uses `<details>` so it opens and closes without JavaScript, and includes
 structured data built from the same questions and answers.
 
 Run `python3 build-godaddy.py` to regenerate the GoDaddy files for both pages.
+
+---
+
+# Violent Crime Defense Page
+
+New page for the violent crime defense content, with a different layout from the DUI and
+weapons pages (same navy/gold brand). All styles are scoped to `.fl-vc`.
+
+- `violent-crime/index.html` – full page: edge-to-edge hero photo, overlapping pillar card,
+  attorney profile cards, numbered feature rows, 360-degree diagram, results call-out,
+  FAQ beside a call card, final call band
+- `violent-crime/godaddy-body.html` – one GoDaddy block (~37,800 characters)
+- `violent-crime/images/web/` – photos served via jsDelivr (pinned to commit `9339654`)
+
+Markup is written in phone order (headline → visual → text → call button); desktop
+rearranges sections with CSS grid areas.

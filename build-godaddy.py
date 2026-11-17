@@ -15,6 +15,7 @@ LIMIT = 51000
 PAGES = {
     "index.html": ("0bc5021a0de6667c437d954d962de38881b2860c", "images/web/", ""),
     "weapons/index.html": ("4bb4090c0d197e008c94818e0b2c5275b64b3c3b", "weapons/images/web/", "weapons/"),
+    "violent-crime/index.html": ("9339654788148c25eab32997669fac6a0b25ea19", "violent-crime/images/web/", "violent-crime/"),
 }
 
 
@@ -27,7 +28,7 @@ def build(src, commit, image_dir, out):
 
     fonts = re.search(r'<link href="https://fonts.googleapis.com[^>]*>', s).group(0)
     style = re.search(r"<style>.*?</style>", s, re.S).group(0)
-    body = re.search(r'<div class="fl-dui">(.*)</div>\s*</body>', s, re.S).group(1)
+    scope, body = re.search(r'<div class="(fl-[a-z]+)">(.*)</div>\s*</body>', s, re.S).groups()
     sections = [x.strip() for x in re.split(r"\n  (?=<!-- [A-Z0-9][A-Z0-9 ]+ -->)", body) if x.strip()]
 
     head = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
@@ -35,7 +36,7 @@ def build(src, commit, image_dir, out):
             f"{fonts}\n{style}\n")
 
     def block(secs):
-        return head + '<div class="fl-dui">\n  ' + "\n\n  ".join(secs) + "\n</div>\n"
+        return head + f'<div class="{scope}">\n  ' + "\n\n  ".join(secs) + "\n</div>\n"
 
     outputs = {f"{out}godaddy-body.html": block(sections)}
     for path, text in outputs.items():
